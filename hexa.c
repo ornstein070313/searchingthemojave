@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-int main()
+void hexadecimal(int number)
 {
-    int index = 0, rem, number = 672;
+    int index = 0, rem;
     int hexa[10]; 
     char hexab[10];
-    
 
     while(number > 0)
     {
@@ -14,8 +13,6 @@ int main()
         number /= 16;
             
         index++;
-
-        printf("%dri\n", rem);
     }
 
     for(int i = 0; i < 10; i++)
@@ -91,12 +88,20 @@ int main()
         }
     }
 
-    printf("%d\n%c\n", hexa[2], hexab[2]);
-    printf("%d\n%c\n", hexa[1], hexab[1]);
-    printf("%d\n%c\n", hexa[0], hexab[0]);
-
     for(int j = index-1; j >= 0; j--)
     {
         printf("%c", hexab[j]);
     }
+}
+
+
+int main()
+{
+    int number;
+    
+    printf("Enter your number: ");
+    scanf("%d", &number);
+
+    hexadecimal(number);
+
 }
