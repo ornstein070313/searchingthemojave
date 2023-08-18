@@ -1,63 +1,39 @@
 #include <stdio.h>
 
-int binary_search(int Arr[], int elements, int target)
-{    
-    int low = 0;
-    int high = elements - 1;
-    int mid;
-
-    while(low<=high)
-    {
-        mid = (low+high)/2;
-
-        if(Arr[mid] == target)
-        {
-            return mid+1;
-            
-        }
-        else if(Arr[mid] > target)
-            high = mid - 1;
-        else 
-            low = mid + 1;
-        
+void decimalToBinary(int number) {
+    if (number == 0) {
+        printf("Binary representation: 0\n");
+        return;
     }
-    
-    return -1;
+
+    int binary[32]; // Array to store binary digits
+    int index = 0;
+
+    for(int j = 0; j<32; j++)
+    {
+        binary[j]=0;
+    }
+
+    while (number > 0) {
+        binary[index] = number % 2;
+        number /= 2;
+        index++;
+    }
+
+    printf("Binary representation: ");
+    for (int i = 32 - 1; i >= 0; --i) {
+        printf("%d", binary[i]);
+    }
+    printf("\n");
 }
 
-void array_add(int Arr[], int elements)
-{
-    
-    for(int i = 0; i<elements; ++i)
-    {
-        printf("Enter element %d: ", i+1);
-        scanf("%d", &Arr[i]);
-    }
+int main() {
+    int decimalNumber;
+
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimalNumber);
+
+    decimalToBinary(decimalNumber);
+
+    return 0;
 }
-
-int main()
-{
-    int elements, target;
-    printf("\nEnter the number of elements: ");
-    scanf("%d", &elements);
-
-    int Arr[elements];
-
-    array_add(Arr, elements);
-
-    printf("\nEnter the target: ");
-    scanf("%d", &target);
-
-    int index = binary_search(Arr, elements, target);
-
-    if(index != -1)
-    {
-        printf("The number %d is in %d position.", target, index);
-    }
-    else
-        printf("The number doesn't exist in the array.");
-}
-
-
-
-
