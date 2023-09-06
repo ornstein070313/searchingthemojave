@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "HalloWelt.C": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "stdio.h": "c"
     }
 }
