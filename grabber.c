@@ -2,12 +2,12 @@
 
 int main()
 {
-    int x = 10000000, flag = 1, count = 0, a = 10;
+    int x = 1000000, flag = 1, count = 0, a = 10;
 
     for(int n = 1; n<=x; n+=2)
     {
 
-        for(int i = 994009; i <= n/2; i++)
+        for(int i = 3; i <= n/2; i+=2)
         {
             if(n%i == 0)
             {
@@ -27,7 +27,10 @@ int main()
         }
         
         if(count == 1)
+            printf("%d\n", n);
             a = (n>a) ? n:a;
+            
+        
     
     count = 0;   
      
