@@ -1,56 +1,52 @@
+/*Write a C program to read a number from user and check whether given number is a prime palindrome or not.
+A number is a palindrome if the number is the same as its reverse for e.g. 23432 is a palindrome 
+but 2345 is not. A number is prime palindrome if it is both a prime number and a palindrome. 
+For e.g., 23432 is not a prime palindrome, but 131 is a prime palindrome.*/
+
 #include <stdio.h>
 
 int main()
 {
-    int n, div, rem = 0, rev = 0 , a, palindrome = 0, flag = 1;
+    int n, div, rem = 0, rev = 0, a, palindrome = 0, flag = 1;
 
-    printf("Enter number: ");
+    printf("Enter number:");
     scanf("%d", &n);
 
     a = n;
 
-    while(n>0)
+    while(a>0) //palindrome checker
     {
-        rem = n%10;
+        rem = a%10;
         rev = rev*10 + rem;
-        n /= 10;
+        a /= 10;
     }
 
-    printf("\n The number is %d", rev);
-
-    if(rev == a)
+    if(rev == n)
     {
-        printf("\nThe number %d is a palindrome", a);
         palindrome = 1;
     }
-    
-    else
-        printf("\nThe number %d is not a palindrome.", a);
 
-    if(palindrome == 1)
+    if(palindrome == 1) //prime checker
     {
-        for(int i = 2; i<=a/2; i++)
+        for(int i = 2; i<=n/2; i++)
         {
-            if(a%i == 0)
+            if(n%i == 0)
             {
-                printf("\nThe number %d is not a prime.", a);
                 flag = 0;
                 break;
             }
-
-            else 
-                flag = 1;
         }
 
     }
 
-    if(palindrome == 1 && flag == 1)
+    if(palindrome == 1 && flag == 1 && n != 1 && n != 0)
     {
-        printf("\nThe number %d is a prime palindrome.", a);
+        printf("The number %d is a prime palindrome.", n);
     }
 
     else
-        printf("\nThe number %d is not a prime palindrome.", a);
-
+    {
+        printf("The number %d is not a prime palindrome.", n);
+    }
 
 }

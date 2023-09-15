@@ -16,9 +16,6 @@ int main()
         n /= 10;   
     }
 
-    printf("%d", rev);
-
-
     while(rev>0)
     {
         switch(rev%10)

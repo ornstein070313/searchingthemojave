@@ -4,7 +4,7 @@
 int main()
 {
 
-    char band[2][3][20] = {{"Mastodon", "Porcupine Tree", "Animals As Leaders"},{"Metallica", "Megadeth", "Testament"}};
+    char band[2][3][50] = {{"Mastodon", "Porcupine Tree", "Animals As Leaders"},{"Metallica", "Megadeth", "Testament"}};
 
 
     for(int i = 0; i<sizeof(band)/sizeof(band[0]); i++)
@@ -18,15 +18,19 @@ int main()
     }
 
     int rx,ry;
-    char newband[20];
+    char newband[50];
 
-    printf("Enter the row and column that you want to change.");
+    printf("Enter the row and column that you want to change.\n");
     scanf("%d %d", &rx, &ry);
 
-    printf("Enter band name:");
-    scanf("%s", &newband);
+    printf("Enter band name:\n");
+    
+    while ((getchar()) != '\n');
+    
+    fgets( newband, 50, stdin);
+    newband[strcspn(newband, "\n")] = 0;
 
-    strcpy(band[rx][ry], newband);
+    strcpy(band[rx-1][ry-1], newband);
 
     for(int i = 0; i<sizeof(band)/sizeof(band[0]); i++)
     {

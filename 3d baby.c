@@ -24,7 +24,7 @@ int main()
     scanf("%d %d", &rx, &ry);
 
     printf("Enter band name:");
-    scanf("%s", &newband);
+    scanf("%s", newband);
 
     strcpy(band[rx][ry], newband);
 
